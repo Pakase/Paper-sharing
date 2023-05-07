@@ -17,11 +17,30 @@
 
 - 论文/Paper: http://arxiv.org/abs/2207.02196
 - 代码/Code: https://github.com/fudan-zvg/pds
+**CCPL: Contrastive Coherence Preserving Loss for Versatile Style Transfer**
+
+- 论文/Paper: https://arxiv.org/abs/2207.04808
+- 代码/Code: https://github.com/JarrentWu1031/CCPL
+- 通过在不同特征层的随机位置对生成特征进行采样。然后在内容特征的相同位置采样同样数量的向量，对每个采样向量，文中希望建模和保留其与周围向量的关联性。为了保留这种邻近向量间的关系，作者并未简单将对应的差向量向相同的方向优化，而是使用了对比学习的形式，来增大对应差向量的互信息，同时与不同位置的差向量在隐空间拉远距离。这么做避免了风格变化和维持原状的直接冲突，使得生成的图像及视频的风格化并未减弱，而是更加合理地与内容结构融为一体。由于更好的保留了内容图中局部之间的关联性，局部随机扰动明显减少，图像生成的质量也大大提升。 注意，本文中训练过程没有视频信息参与，训练数据由单图组成。
+
+文章另外还提出了一种轻量化的风格化网络SCTNet来配合完成通用风格迁移的任务。结合CCPL和SCTNet，文中模型在艺术化，照片化和视频风格迁移三个任务上都超越了之前方法的效果。在视频风格迁移任务中性能逼近最先进的利用视频帧训练的方法。文中还展示了CCPL应用于其他风格迁移模型上以及图到图任务中的效果提升，展示了其广泛应用的潜力。
+
+
 
 **CCPL: Contrastive Coherence Preserving Loss for Versatile Style Transfer**
 
 - 论文/Paper: http://arxiv.org/pdf/2207.04808
 - 代码/Code: https://github.com/JarrentWu1031/CCPL
+
+**Registration based Few-Shot Anomaly Detection**
+- 论文/Paper: https://arxiv.org/abs/2207.07361
+- 代码/Code: https://github.com/Jaraxxus-Me/AirDet
+- 无需微调的小样本目标检测方法AirDet，针对机器人自主探索任务设计。基训练后，未经微调的AirDet表现甚至优于部分微调后的方法。论文、项目代码、ROS部署接口均已开源。
+
+**Rethinking the Context-oriented Generalization of Vision Transformer**
+- 论文/Paper: https://arxiv.org/abs/2203.10790
+- 代码/Code: https://github.com/MediaBrain-SJTU/RegAD
+- 上海交通大学 MediaBrain 团队和上海人工智能实验室智慧医疗团队等的研究人员提出了一种基于配准的少样本异常检测框架 RegAD，用于学习多个异常检测任务之间共享的通用模型。RegAD 无需模型参数调整，仅利用少量正常样本，就可以直接应用于新的异常检测任务。
 
 **Fast-Vid2Vid: Spatial-Temporal Compression for Video-to-Video Synthesis**
 
