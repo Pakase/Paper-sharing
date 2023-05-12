@@ -1,187 +1,166 @@
-**Accelerating Score-based Generative Models with Preconditioned Diffusion Sampling**
+## **Accelerating Score-based Generative Models with Preconditioned Diffusion Sampling**(使用预条件扩散采样加速基于分数的生成模型)
 
 - 论文/Paper: http://arxiv.org/abs/2207.02196
-- 代码/Code: https://github.com/fudan-zvg/pds
 
-**qDWI-Morph: Motion-compensated quantitative Diffusion-Weighted MRI analysis for fetal lung maturity assessment**
+- 代码/Code: https://github.com/fudan-zvg/pdsScore-based 
 
-- 论文/Paper: http://arxiv.org/pdf/2208.09836
-- 代码/Code: https://github.com/TechnionComputationalMRILab/qDWI-Morph.
+- generative models (SGMs) have recently emerged as a promising class of generative models. However, a fundamental limitation is that their inference is very slow due to a need for many (e.g., 2000) iterations of sequential computations. An intuitive acceleration method is to reduce the sampling iterations which however causes severe performance degradation. We investigate this problem by viewing the diffusion sampling process as a Metropolis adjusted Langevin algorithm, which helps reveal the underlying cause to be ill-conditioned curvature. Under this insight, we propose a model-agnostic preconditioned diffusion sampling (PDS) method that leverages matrix preconditioning to alleviate the aforementioned problem. Crucially, PDS is proven theoretically to converge to the original target distribution of a SGM, no need for retraining. Extensive experiments on three image datasets with a variety of resolutions and diversity validate that PDS consistently accelerates off-the-shelf SGMs whilst maintaining the synthesis quality. In particular, PDS can accelerate by up to 29x on more challenging high resolution (1024x1024) image generation.
 
-**Ultra-high-resolution unpaired stain transformation via Kernelized Instance Normalization**
+- 基于分数的生成模型（SGM）最近已成为一类有前途的生成模型。然而，一个根本的限制是，由于需要多次（例如，2000）顺序计算的迭代，它们的推理非常慢。一种直观的加速方法是减少采样迭代，但这会导致严重的性能下降。我们通过将扩散采样过程视为大都会调整的Langevin算法来研究这个问题，这有助于揭示病态曲率的根本原因。根据这一见解，我们提出了一种与模型无关的预条件扩散采样（PDS）方法，该方法利用矩阵预处理来缓解上述问题。 至关重要的是，PDS在理论上被证明可以收敛到SGM的原始目标分布，无需再训练。在具有各种分辨率和多样性的三个图像数据集上进行的广泛实验证明，PDS在保持合成质量的同时，始终如一地加速现成的SGM。特别是，PDS 可以在更具挑战性的高分辨率 （1024x1024） 图像生成上加速高达 29 倍。
 
-- 论文/Paper: https://arxiv.org/pdf/2208.10730v1.pdf
-- 代码/Code: https://github.com/Kaminyou/URUST
+  ​
 
-**Accelerating Score-based Generative Models with Preconditioned Diffusion Sampling**
+  ## **Lossy Image Compression with Conditional Diffusion Models使用条件扩散模型的有损图像压缩**
 
-- 论文/Paper: http://arxiv.org/abs/2207.02196
-- 代码/Code: https://github.com/fudan-zvg/pds
-**CCPL: Contrastive Coherence Preserving Loss for Versatile Style Transfer**
+  - 论文/Paper: <http://arxiv.org/pdf/2209.06950>
+  - 代码/Code: None
+  - This paper outlines an end-to-end optimized lossy image compression framework using diffusion generative models. The approach relies on the transform coding paradigm, where an image is mapped into a latent space for entropy coding and, from there, mapped back to the data space for reconstruction. In contrast to VAE-based neu- ral compression, where the (mean) decoder is a deterministic neural network, our decoder is a conditional diffusion model. Our approach thus introduces an additional “content” latent variable on which the reverse diffusion process is condi- tioned and uses this variable to store information about the image. The remaining “texture” latent variables characterizing the diffusion process are synthesized (stochastically or deterministically) at decoding time. We show that the model’s per- formance can be tuned toward perceptual metrics of interest. Our extensive experiments involv- ing five datasets and sixteen image quality assess- ment metrics show that our approach yields the strongest reported FID scores while also yield- ing competitive performance with state-of-the-art models in several SIM-based reference metrics.
+  - 这篇论文概述了一种使用扩散生成模型的端到端优化的有损图像压缩框架。该方法依赖于变换编码范例，其中图像被映射到潜空间进行熵编码，然后从那里映射回数据空间进行重建。与基于VAE的神经压缩不同，其中（平均）解码器是确定性神经网络，我们的解码器是条件扩散模型。因此，我们的方法引入了一个额外的“内容”潜变量，反向扩散过程在其中被条件化，并使用该变量存储有关图像的信息。表征扩散过程的其余“纹理”潜变量在解码时被合成（随机或确定性）。我们表明，该模型的性能可以针对感知度量进行调整。我们广泛的实验涉及五个数据集和十六个图像质量评估指标，表明我们的方法产生了最强大的FID分数，并在几个基于SIM的参考指标中产生了与最先进模型相竞争的性能 。
 
-- 论文/Paper: https://arxiv.org/abs/2207.04808
-- 代码/Code: https://github.com/JarrentWu1031/CCPL
-- 通过在不同特征层的随机位置对生成特征进行采样。然后在内容特征的相同位置采样同样数量的向量，对每个采样向量，文中希望建模和保留其与周围向量的关联性。为了保留这种邻近向量间的关系，作者并未简单将对应的差向量向相同的方向优化，而是使用了对比学习的形式，来增大对应差向量的互信息，同时与不同位置的差向量在隐空间拉远距离。这么做避免了风格变化和维持原状的直接冲突，使得生成的图像及视频的风格化并未减弱，而是更加合理地与内容结构融为一体。由于更好的保留了内容图中局部之间的关联性，局部随机扰动明显减少，图像生成的质量也大大提升。 注意，本文中训练过程没有视频信息参与，训练数据由单图组成。
+  ​
 
-文章另外还提出了一种轻量化的风格化网络SCTNet来配合完成通用风格迁移的任务。结合CCPL和SCTNet，文中模型在艺术化，照片化和视频风格迁移三个任务上都超越了之前方法的效果。在视频风格迁移任务中性能逼近最先进的利用视频帧训练的方法。文中还展示了CCPL应用于其他风格迁移模型上以及图到图任务中的效果提升，展示了其广泛应用的潜力。
+  ## **qDWI-Morph: Motion-compensated quantitative Diffusion-Weighted MRI analysis for fetal lung maturity assessmentqDWI-Morph：用于胎儿肺成熟度评估的运动补偿定量弥散加权MRI分析**
+
+  - 论文/Paper: <http://arxiv.org/pdf/2208.09836>
+  - 代码/Code: <https://github.com/TechnionComputationalMRILab/qDWI-Morph>.
+  - Quantitative analysis of fetal lung Diffusion-Weighted MRI (DWI) data shows potential in providing quantitative imaging biomark- ers that indirectly reflect fetal lung maturation. However, fetal motion during the acquisition hampered quantitative analysis of the acquired DWI data and, consequently, reliable clinical utilization. We introduce qDWI-morph, an unsupervised deep-neural-network architecture for mo- tion compensated quantitative DWI (qDWI) analysis. Our approach cou- ples a registration sub-network with a quantitative DWI model fitting sub-network. We simultaneously estimate the qDWI parameters and the motion model by minimizing a bio-physically-informed loss function in- tegrating a registration loss and a model fitting quality loss. We demon- strated the added-value of qDWI-morph over: 1) a baseline qDWI analy- sis without motion compensation and 2) a baseline deep-learning model incorporating registration loss solely. The qDWI-morph achieved a sub- stantially improved correlation with the gestational age through in-vivo qDWI analysis of fetal lung DWI data (R2 = 0.32 vs. 0.13, 0.28). Our qDWI-morph has the potential to enable motion-compensated quantita- tive analysis of DWI data and to provide clinically feasible bio-markers for non-invasive fetal lung maturity assessment.
+  - 这篇论文提出了一种名为qDWI-morph的无监督深度神经网络架构，用于运动补偿定量扩散加权磁共振成像（qDWI）分析。该方法将一个配准子网络与一个定量DWI模型拟合子网络相结合。通过最小化生物物理学信息损失函数，该方法同时估计qDWI参数和运动模型，该函数集成了配准损失和模型拟合质量损失。作者在胎儿肺DWI数据的qDWI分析中证明了qDWI-morph的附加价值，相比于：1）没有运动补偿的基线qDWI分析和2）仅包含配准损失的基线深度学习模型。qDWI-morph通过体内胎儿肺DWI数据的qDWI分析实现了与孕龄的显著改善相关性（R2 = 0.32 vs. [0.13, 0.28）。作者认为，他们的qDWI-morph有潜力实现运动补偿的DWI数据定量分析，并为非侵入性胎儿肺成熟度评估提供临床可行的生物标志物。
+
+  ​
+
+  ## **DynaST: Dynamic Sparse Transformer for Exemplar-Guided Image GenerationDynaST：用于示例引导图像生成的动态稀疏变压器**
+
+  - 论文/Paper: <http://arxiv.org/pdf/2207.06124>
+  - 代码/Code: <https://github.com/huage001/dynast>
+  - One key challenge of exemplar-guided image generation lies in establishing fine-grained correspondences between input and guided images. Prior approaches, despite the promising results, have relied on either estimating dense attention to compute per-point matching, which is limited to only coarse scales due to the quadratic memory cost, or fixing the number of correspondences to achieve linear complexity, which lacks flexibility. In this paper, we propose a dynamic sparse attention based Transformer model, termed Dynamic Sparse Transformer (DynaST), to achieve fine-level matching with favorable efficiency. The heart of our approach is a novel dynamic-attention unit, dedicated to covering the variation on the optimal number of tokens one position should focus on. Specifically, DynaST leverages the multi-layer nature of Transformer structure, and performs the dynamic attention scheme in a cascaded manner to refine matching results and synthesize visually-pleasing outputs. In addition, we introduce a unified training objective for DynaST, making it a versatile reference-based image translation framework for both supervised and unsupervised scenarios. Extensive experiments on three applications, pose-guided person image generation, edge-based face synthesis, and undistorted image style transfer, demonstrate that DynaST achieves superior performance in local details, outperforming the state of the art while reducing the computational cost significantly. 
+  - 示例引导图像生成的一个关键挑战在于在输入和引导图像之间建立细粒度的对应关系。尽管取得了有希望的结果，但以前的方法依赖于估计密集注意力以计算每点匹配，由于二次内存成本，这仅限于粗略的尺度，或者固定对应数量以实现线性复杂性，这缺乏灵活性。在本文中，我们提出了一种基于动态稀疏注意力的变压器模型，称为动态稀疏变压器（DynaST），以实现具有良好效率的精细匹配。我们方法的核心是一个新颖的动态注意力单元，致力于涵盖一个位置应该关注的最佳代币数量的变化。 具体而言，DynaST利用变压器结构的多层特性，并以级联方式执行动态注意力方案，以细化匹配结果并合成视觉上令人愉悦的输出。此外，我们还为DynaST引入了统一的训练目标，使其成为一个适用于监督和无监督场景的基于参考的通用图像转换框架。在姿势引导的人物图像生成、基于边缘的面部合成和不失真的图像风格转换这三种应用上的大量实验表明，DynaST 在局部细节方面实现了卓越的性能，在显著降低计算成本的同时超越了现有技术。
+
+## **Name: Adaptive Feature Interpolation for Low-Shot Image Generation名称：用于低镜头图像生成的自适应特征插值**
+
+- 论文/Paper: <https://arxiv.org/abs/2112.02450>
+- 代码/Code: <https://github.com/dzld00/Adaptive-Feature-Interpolation-for-Low-Shot-Image-Generation>
+- Training of generative models especially Generative Adversarial Networks can easily diverge in low-data setting. To mitigate this issue, we propose a novel implicit data augmentation approach which facilitates stable training and synthesize high-quality samples without need of label information. Specifically, we view the discriminator as a metric embedding of the real data manifold, which offers proper distances between real data points. We then utilize information in the feature space to develop a fully unsupervised and data-driven augmentation method. Experiments on few-shot generation tasks show the proposed method significantly improve results from strong baselines with hundreds of training samples.
+- 生成模型的训练，尤其是生成对抗网络，在低数据设置中很容易发散。为了缓解这个问题，我们提出了一种新的隐式数据增强方法，该方法有助于稳定的训练和合成高质量的样本，而无需标签信息。具体来说，我们将鉴别器视为真实数据流形的度量嵌入，它提供了真实数据点之间的适当距离。然后，我们利用特征空间中的信息来开发一种完全无监督和数据驱动的增强方法。对少样本生成任务的实验表明，所提出的方法显著改善了具有数百个训练样本的强基线的结果。
 
 
 
-**CCPL: Contrastive Coherence Preserving Loss for Versatile Style Transfer**
+## **WaveGAN: Frequency-aware GAN for High-Fidelity Few-shot Image GenerationWaveGAN：频率感知 GAN，用于高保真少镜头图像生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.04808
-- 代码/Code: https://github.com/JarrentWu1031/CCPL
+- 论文/Paper: <http://arxiv.org/pdf/2207.07288>
+- 代码/Code: Link:<https://github.com/kobeshegu/ECCV2022_WaveGAN>
+- Existing few-shot image generation approaches typically employ fusion-based strategies, either on the image or the feature level, to produce new images. However, previous approaches struggle to synthesize high-frequency signals with fine details, deteriorating the synthesis quality. To address this, we propose WaveGAN, a frequency-aware model for few-shot image generation. Concretely, we disentangle encoded features into multiple frequency components and perform low-frequency skip connections to preserve outline and structural information. Then we alleviate the generator's struggles of synthesizing fine details by employing high-frequency skip connections, thus providing informative frequency information to the generator. Moreover, we utilize a frequency L1-loss on the generated and real images to further impede frequency information loss. Extensive experiments demonstrate the effectiveness and advancement of our method on three datasets. Noticeably, we achieve new state-of-the-art with FID 42.17, LPIPS 0.3868, FID 30.35, LPIPS 0.5076, and FID 4.96, LPIPS 0.3822 respectively on Flower, Animal Faces, and VGGFace. GitHub: [this https URL](https://github.com/kobeshegu/ECCV2022_WaveGAN)
+  现有的少镜头图像生成方法通常在图像或特征级别采用基于融合的策略来生成新图像。然而，以前的方法难以合成具有精细细节的高频信号，从而降低了合成质量。为了解决这个问题，我们提出了WaveGAN，一种用于生成少镜头图像的频率感知模型。具体来说，我们将编码的特征解开为多个频率分量，并执行低频跳跃连接以保留轮廓和结构信息。然后，我们通过采用高频跳跃连接来减轻发生器合成精细细节的困难，从而为发生器提供信息丰富的频率信息。 此外，我们利用生成图像和真实图像的频率L1损失来进一步阻止频率信息丢失。大量的实验证明了我们的方法在三个数据集上的有效性和进步性。值得注意的是，我们在花朵、动物面孔和 VGGFace 上分别实现了 FID 42.17、LPIPS 0.3868、FID 30.35、LPIPS 0.5076 和 FID 4.96、LPIPS 0.3822 的新技术。
 
-**Registration based Few-Shot Anomaly Detection**
-- 论文/Paper: https://arxiv.org/abs/2207.07361
-- 代码/Code: https://github.com/Jaraxxus-Me/AirDet
-- 无需微调的小样本目标检测方法AirDet，针对机器人自主探索任务设计。基训练后，未经微调的AirDet表现甚至优于部分微调后的方法。论文、项目代码、ROS部署接口均已开源。
+## **Generative Multiplane Images: Making a 2D GAN 3D-Aware生成式多平面图像：创建 2D GAN 3D 感知**
 
-**Rethinking the Context-oriented Generalization of Vision Transformer**
-- 论文/Paper: https://arxiv.org/abs/2203.10790
-- 代码/Code: https://github.com/MediaBrain-SJTU/RegAD
-- 上海交通大学 MediaBrain 团队和上海人工智能实验室智慧医疗团队等的研究人员提出了一种基于配准的少样本异常检测框架 RegAD，用于学习多个异常检测任务之间共享的通用模型。RegAD 无需模型参数调整，仅利用少量正常样本，就可以直接应用于新的异常检测任务。
+- 论文/Paper: <http://arxiv.org/pdf/2207.10642>
+- 代码/Code: <https://github.com/apple/ml-gmpi>
+- Creating and editing the shape and color of 3D objects require tremendous human effort and expertise. Compared to direct manipulation in 3D interfaces, 2D interactions such as sketches and scribbles are usually much more natural and intuitive for the users. In this paper, we propose a generic multi-modal generative model that couples the 2D modalities and implicit 3D representations through shared latent spaces. With the proposed model, versatile 3D generation and manipulation are enabled by simply propagating the editing from a specific 2D controlling modality through the latent spaces. For example, editing the 3D shape by drawing a sketch, re-colorizing the 3D surface via painting color scribbles on the 2D rendering, or generating 3D shapes of a certain category given one or a few reference images. Unlike prior works, our model does not require re-training or fine-tuning per editing task and is also conceptually simple, easy to implement, robust to input domain shifts, and flexible to diverse reconstruction on partial 2D inputs. We evaluate our framework on two representative 2D modalities of grayscale line sketches and rendered color images, and demonstrate that our method enables various shape manipulation and generation tasks with these 2D modalities.
+- 创建和编辑 3D 对象的形状和颜色需要大量的人力和专业知识。与 3D 界面中的直接操作相比，草图和涂鸦等 2D 交互通常对用户来说更加自然和直观。在本文中，我们提出了一个通用的多模态生成模型，该模型通过共享的潜在空间耦合了2D模态和隐式3D表示。通过所提出的模型，只需将编辑从特定的2D控制模态传播到潜在空间即可实现通用的3D生成和操作。 例如，通过绘制草图来编辑 3D 形状，通过在 2D 渲染上绘制颜色涂鸦来重新着色 3D 表面，或者在给定一个或几个参考图像的情况下生成特定类别的 3D 形状。与之前的工作不同，我们的模型不需要重新训练或微调每个编辑任务，并且在概念上也很简单，易于实现，对输入域偏移具有鲁棒性，并且可以灵活地在部分2D输入上进行多样化的重建。我们在灰度线草图和渲染彩色图像的两种代表性2D模态上评估了我们的框架，并证明了我们的方法可以使用这些2D模态进行各种形状操作和生成任务。
 
-**Fast-Vid2Vid: Spatial-Temporal Compression for Video-to-Video Synthesis**
+## DeltaGAN: Towards Diverse Few-shot Image Generation with Sample-Specific DeltaDeltaGAN：通过特定于样本的 Delta 实现多样化的少数镜头图像生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.05049
-- 代码/Code: https://github.com/fast-vid2vid/fast-vid2vid
+- 论文/Paper: <http://arxiv.org/pdf/2207.10271>
+- 代码/Code: <https://github.com/bcmi/deltagan-few-shot-image-generation>
+- Learning to generate new images for a novel category based on only a few images, named as few-shot image generation, has attracted increasing research interest. Several state-of-the-art works have yielded impressive results, but the diversity is still limited. In this work, we propose a novel Delta Generative Adversarial Network (DeltaGAN), which consists of a reconstruction subnetwork and a generation subnetwork. The reconstruction subnetwork captures intra-category transformation, i.e., delta, between same-category pairs. The generation subnetwork generates sample-specific delta for an input image, which is combined with this input image to generate a new image within the same category. Besides, an adversarial delta matching loss is designed to link the above two subnetworks together. Extensive experiments on six benchmark datasets demonstrate the effectiveness of our proposed method. Our code is available at [this https URL](https://github.com/bcmi/DeltaGAN-Few-Shot-Image-Generation).
+- 学习仅基于少数图像为新类别生成新图像，称为少镜头图像生成，引起了越来越多的研究兴趣。一些最先进的作品产生了令人印象深刻的结果，但多样性仍然有限。在这项工作中，我们提出了一种新的德尔塔生成对抗网络（DeltaGAN），它由一个重建子网和一个生成子网组成。重建子网捕获同一类别对之间的类别内转换，即增量。生成子网为输入影像生成特定于样本的增量，该增量与此输入影像相结合以生成同一类别中的新影像。此外，还设计了一种对抗性增量匹配损失，将上述两个子网连接在一起。 在六个基准数据集上的大量实验证明了我们提出的方法的有效性。
 
-**RepMix: Representation Mixing for Robust Attribution of Synthesized Images**
+## **Injecting 3D Perception of Controllable NeRF-GAN into StyleGAN for Editable Portrait Image Synthesis将可控NeRF-GAN的3D感知注入StyleGAN进行可编辑的人像图像合成**
 
-- 论文/Paper: http://arxiv.org/abs/2207.02063
-- 代码/Code: https://github.com/tubui/image_attribution
+- 论文/Paper: <http://arxiv.org/pdf/2207.10257>
+- 代码/Code: <https://github.com/jgkwak95/surf-gan>
+- Over the years, 2D GANs have achieved great successes in photorealistic portrait generation. However, they lack 3D understanding in the generation process, thus they suffer from multi-view inconsistency problem. To alleviate the issue, many 3D-aware GANs have been proposed and shown notable results, but 3D GANs struggle with editing semantic attributes. The controllability and interpretability of 3D GANs have not been much explored. In this work, we propose two solutions to overcome these weaknesses of 2D GANs and 3D-aware GANs. We first introduce a novel 3D-aware GAN, SURF-GAN, which is capable of discovering semantic attributes during training and controlling them in an unsupervised manner. After that, we inject the prior of SURF-GAN into StyleGAN to obtain a high-fidelity 3D-controllable generator. Unlike existing latent-based methods allowing implicit pose control, the proposed 3D-controllable StyleGAN enables explicit pose control over portrait generation. This distillation allows direct compatibility between 3D control and many StyleGAN-based techniques (e.g., inversion and stylization), and also brings an advantage in terms of computational resources. Our codes are available at [this https URL](https://github.com/jgkwak95/SURF-GAN).
+- 多年来，2D GAN 在逼真的肖像生成方面取得了巨大成功。然而，他们在生成过程中缺乏3D理解，因此存在多视图不一致的问题。为了缓解这个问题，已经提出了许多3D感知的GAN并显示出显着的结果，但是3D GAN在编辑语义属性方面遇到了困难。3D GAN的可控性和可解释性尚未得到太多探索。在这项工作中，我们提出了两种解决方案来克服2D GAN和3D感知GAN的这些弱点。我们首先介绍了一种新的3D感知GAN，SURF-GAN，它能够在训练过程中发现语义属性并以无监督的方式控制它们。 之后，我们将SURF-GAN的先验注入到StyleGAN中，以获得高保真3D可控发生器。与现有的基于潜伏的方法允许隐式姿势控制不同，所提出的3D可控StyleGAN可以对肖像生成进行显式姿势控制。这种蒸馏允许3D控制与许多基于StyleGAN的技术（例如，反转和风格化）之间的直接兼容性，并且在计算资源方面也带来了优势。
 
-**VecGAN: Image-to-Image Translation with Interpretable Latent Directions**
+## **StyleLight: HDR Panorama Generation for Lighting Estimation and EditingStyleLight：用于照明估计和编辑的 HDR 全景生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.03411
+- 论文/Paper: <http://arxiv.org/pdf/2207.14811>
+- 代码/Code: <https://github.com/Wanggcong/StyleLight>
+- Controllable person image synthesis task enables a wide range of applications through explicit control over body pose and appearance. In this paper, we propose a cross attention based style distribution module that computes between the source semantic styles and target pose for pose transfer. The module intentionally selects the style represented by each semantic and distributes them according to the target pose. The attention matrix in cross attention expresses the dynamic similarities between the target pose and the source styles for all semantics. Therefore, it can be utilized to route the color and texture from the source image, and is further constrained by the target parsing map to achieve a clearer objective. At the same time, to encode the source appearance accurately, the self attention among different semantic styles is also added. The effectiveness of our model is validated quantitatively and qualitatively on pose transfer and virtual try-on tasks.
+- 可控人物图像合成任务通过显式控制身体姿势和外观，实现了广泛的应用。在本文中，我们提出了一个基于交叉注意力的风格分布模块，该模块计算源语义样式和目标姿势之间的姿势转移。该模块有意选择每个语义所代表的样式，并根据目标姿势对其进行分配。交叉注意力中的注意力矩阵表示所有语义的目标姿势和源样式之间的动态相似性。因此，它可以用来从源图像路由颜色和纹理，并进一步受到目标解析图的约束，以实现更清晰的目标。 同时，为了准确编码源外观，还增加了不同语义风格之间的自我注意。我们的模型的有效性在姿势转移和虚拟试妆任务中得到了定量和定性验证。
+
+## **ModSelect: Automatic Modality Selection for Synthetic-to-Real Domain GeneralizationModSelect：用于合成到真实域泛化的自动模态选择**
+
+- 论文/Paper: <http://arxiv.org/pdf/2208.09414>
 - 代码/Code: None
+- Modality selection is an important step when designing multimodal systems, especially in the case of cross-domain activity recognition as certain modalities are more robust to domain shift than others. However, selecting only the modalities which have a positive contribution requires a systematic approach. We tackle this problem by proposing an unsupervised modality selection method (ModSelect), which does not require any ground-truth labels. We determine the correlation between the predictions of multiple unimodal classifiers and the domain discrepancy between their embeddings. Then, we systematically compute modality selection thresholds, which select only modalities with a high correlation and low domain discrepancy. We show in our experiments that our method ModSelect chooses only modalities with positive contributions and consistently improves the performance on a Synthetic-to-Real domain adaptation benchmark, narrowing the domain gap.
+- 模态选择是设计多模态系统时的重要步骤，特别是在跨域活动识别的情况下，因为某些模态比其他模态更能适应域转移。然而，只选择有积极贡献的方式需要采取系统的办法。我们通过提出一种无监督模态选择方法（ModSelect）来解决这个问题，该方法不需要任何真实标签。我们确定了多个单峰分类器的预测与其嵌入之间的域差异之间的相关性。然后，我们系统地计算模态选择阈值，该阈值仅选择具有高相关性和低域差异的模态。 我们在实验中表明，我们的方法ModSelect只选择具有正贡献的模态，并不断提高合成到真实域适应基准的性能，缩小域差距。
 
-**Context-Consistent Semantic Image Editing with Style-Preserved Modulation**
+## **Improved Masked Image Generation with Token-Critic使用令牌注释器改进了蒙版图像生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.06252
-- 代码/Code: https://github.com/wuyangluo/spmpgan
-
-**DynaST: Dynamic Sparse Transformer for Exemplar-Guided Image Generation**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.06124
-- 代码/Code: https://github.com/huage001/dynast
-
-**Supervised Attribute Information Removal and Reconstruction for Image Manipulation**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.06555
-- 代码/Code: https://github.com/nannanli999/airr
-
-**Name: Adaptive Feature Interpolation for Low-Shot Image Generation**
-
-- 论文/Paper: https://arxiv.org/abs/2112.02450
-- 代码/Code: https://github.com/dzld00/Adaptive-Feature-Interpolation-for-Low-Shot-Image-Generation
-
-**WaveGAN: Frequency-aware GAN for High-Fidelity Few-shot Image Generation**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.07288
-- 代码/Code: Link:https://github.com/kobeshegu/ECCV2022_WaveGAN
-
-**FakeCLR: Exploring Contrastive Learning for Solving Latent Discontinuity in Data-Efficient GANs**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.08630
-- 代码/Code: https://github.com/iceli1007/FakeCLR
-
-**Outpainting by Queries**
-- 论文/Paper: https://arxiv.org/abs/2207.05312
-- 代码/Code: https://github.com/Kaiseem/QueryOTR
-
-**Single Stage Virtual Try-on via Deformable Attention Flows**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.09161
-- 代码/Code: https://github.com/OFA-Sys/DAFlow
-
-**Structure-aware Editable Morphable Model for 3D Facial Detail Animation and Manipulation**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.09019
-- 代码/Code: https://github.com/gerwang/facial-detail-manipulation
-
-**Monocular 3D Object Reconstruction with GAN Inversion**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.10061
-- 代码/Code: https://github.com/junzhezhang/mesh-inversion
-
-**Generative Multiplane Images: Making a 2D GAN 3D-Aware**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.10642
-- 代码/Code: https://github.com/apple/ml-gmpi
-
-**DeltaGAN: Towards Diverse Few-shot Image Generation with Sample-Specific Delta**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.10271
-- 代码/Code: https://github.com/bcmi/deltagan-few-shot-image-generation
-
-**Injecting 3D Perception of Controllable NeRF-GAN into StyleGAN for Editable Portrait Image Synthesis**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.10257
-- 代码/Code: https://github.com/jgkwak95/surf-gan
-
-**SGBANet: Semantic GAN and Balanced Attention Network for Arbitrarily Oriented Scene Text Recognition**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.10256
+- 论文/Paper: <http://arxiv.org/pdf/2209.04439>
 - 代码/Code: None
+- Non-autoregressive generative transformers recently demonstrated impressive image generation performance, and orders of magnitude faster sampling than their autoregressive counterparts. However, optimal parallel sampling from the true joint distribution of visual tokens remains an open challenge. In this paper we introduce Token-Critic, an auxiliary model to guide the sampling of a non-autoregressive generative transformer. Given a masked-and-reconstructed real image, the Token-Critic model is trained to distinguish which visual tokens belong to the original image and which were sampled by the generative transformer. During non-autoregressive iterative sampling, Token-Critic is used to select which tokens to accept and which to reject and resample. Coupled with Token-Critic, a state-of-the-art generative transformer significantly improves its performance, and outperforms recent diffusion models and GANs in terms of the trade-off between generated image quality and diversity, in the challenging class-conditional ImageNet generation.
+- 非自回归生成变压器最近展示了令人印象深刻的图像生成性能，并且采样速度比自回归转换器快几个数量级。然而，从视觉代币的真实联合分布中获得最佳并行采样仍然是一个悬而未决的挑战。在本文中，我们介绍了Token-Critic，这是一种辅助模型，用于指导非自回归生成变压器的采样。给定一个被屏蔽和重建的真实图像，Token-Critic 模型被训练以区分哪些视觉令牌属于原始图像，哪些是由生成转换器采样的。在非自回归迭代采样期间，Token-Critic 用于选择要接受的标记以及拒绝和重新采样的标记。 与 Token-Critic 相结合，最先进的生成转换器显着提高了其性能，并且在具有挑战性的类条件 ImageNet 生成中，在生成的图像质量和多样性之间的权衡方面优于最近的扩散模型和 GAN。
 
-**2D GANs Meet Unsupervised Single-view 3D Reconstruction**
+## **Weakly-Supervised Stitching Network for Real-World Panoramic Image Generation用于真实世界全景图像生成的弱监督拼接网络**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.10183
+- 论文/Paper: <http://arxiv.org/pdf/2209.05968>
 - 代码/Code: None
+- Recently, there has been growing attention on an end-to-end deep learning-based stitching model. However, the most challenging point in deep learning-based stitching is to obtain pairs of input images with a narrow field of view and ground truth images with a wide field of view captured from real-world scenes. To overcome this difficulty, we develop a weakly-supervised learning mechanism to train the stitching model without requiring genuine ground truth images. In addition, we propose a stitching model that takes multiple real-world fisheye images as inputs and creates a 360 output image in an equirectangular projection format. In particular, our model consists of color consistency corrections, warping, and blending, and is trained by perceptual and SSIM losses. The effectiveness of the proposed algorithm is verified on two real-world stitching datasets.
+- 最近，人们越来越关注基于端到端深度学习的拼接模型。然而，基于深度学习的拼接中最具挑战性的一点是从真实场景捕获具有窄视场的输入图像对和具有宽视场的地面真实图像。为了克服这个困难，我们开发了一种弱监督学习机制来训练拼接模型，而不需要真正的真实图像。此外，我们提出了一种拼接模型，该模型将多个真实世界的鱼眼镜头图像作为输入，并以等距柱状投影格式创建360度输出图像。特别是，我们的模型包括颜色一致性校正、翘曲和混合，并通过感知和 SSIM 损失进行训练。 在两个真实世界的拼接数据集上验证了所提算法的有效性。
 
-**InfiniteNature-Zero: Learning Perpetual View Generation of Natural Scenes from Single Images**
+## **Neural-Sim: Learning to Generate Training Data with NeRFNeural-Sim：学习使用 NeRF 生成训练数据**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.11148
+- 论文/Paper: <http://arxiv.org/pdf/2207.11368>
+- 代码/Code: <https://github.com/gyhandy/neural-sim-nerf>
+- Training computer vision models usually requires collecting and labeling vast amounts of imagery under a diverse set of scene configurations and properties. This process is incredibly time-consuming, and it is challenging to ensure that the captured data distribution maps well to the target domain of an application scenario. Recently, synthetic data has emerged as a way to address both of these issues. However, existing approaches either require human experts to manually tune each scene property or use automatic methods that provide little to no control; this requires rendering large amounts of random data variations, which is slow and is often suboptimal for the target domain. We present the first fully differentiable synthetic data pipeline that uses Neural Radiance Fields (NeRFs) in a closed-loop with a target application's loss function. Our approach generates data on-demand, with no human labor, to maximize accuracy for a target task. We illustrate the effectiveness of our method on synthetic and real-world object detection tasks. We also introduce a new "YCB-in-the-Wild" dataset and benchmark that provides a test scenario for object detection with varied poses in real-world environments.
+- 训练计算机视觉模型通常需要在一组不同的场景配置和属性下收集和标记大量图像。此过程非常耗时，并且很难确保捕获的数据分布很好地映射到应用程序方案的目标域。最近，合成数据已成为解决这两个问题的一种方式。但是，现有方法要么需要人类专家手动调整每个场景属性，要么使用几乎不提供控制的自动方法;这需要呈现大量的随机数据变化，这很慢，并且对于目标域来说通常是次优的。 我们提出了第一个完全可微分的合成数据管道，该管道在具有目标应用程序的损失函数的闭环中使用神经辐射场（NeRF）。我们的方法无需人工即可按需生成数据，以最大限度地提高目标任务的准确性。我们说明了我们的方法在合成和真实世界物体检测任务上的有效性。我们还引入了一个新的“YCB-in-the-Wild”数据集和基准测试，为真实环境中具有各种姿势的对象检测提供了测试场景
+
+## **DynaST: Dynamic Sparse Transformer for Exemplar-Guided Image GenerationDynaST：用于示例引导图像生成的动态稀疏变压器**
+
+- 论文/Paper: <http://arxiv.org/pdf/2207.06124>
+- 代码/Code: <https://github.com/huage001/dynast>
+- One key challenge of exemplar-guided image generation lies in establishing fine-grained correspondences between input and guided images. Prior approaches, despite the promising results, have relied on either estimating dense attention to compute per-point matching, which is limited to only coarse scales due to the quadratic memory cost, or fixing the number of correspondences to achieve linear complexity, which lacks flexibility. In this paper, we propose a dynamic sparse attention based Transformer model, termed Dynamic Sparse Transformer (DynaST), to achieve fine-level matching with favorable efficiency. The heart of our approach is a novel dynamic-attention unit, dedicated to covering the variation on the optimal number of tokens one position should focus on. Specifically, DynaST leverages the multi-layer nature of Transformer structure, and performs the dynamic attention scheme in a cascaded manner to refine matching results and synthesize visually-pleasing outputs. In addition, we introduce a unified training objective for DynaST, making it a versatile reference-based image translation framework for both supervised and unsupervised scenarios. Extensive experiments on three applications, pose-guided person image generation, edge-based face synthesis, and undistorted image style transfer, demonstrate that DynaST achieves superior performance in local details, outperforming the state of the art while reducing the computational cost significantly. 
+- 示例引导图像生成的一个关键挑战在于在输入和引导图像之间建立细粒度的对应关系。尽管取得了有希望的结果，但以前的方法依赖于估计密集注意力以计算每点匹配，由于二次内存成本，这仅限于粗略的尺度，或者固定对应数量以实现线性复杂性，这缺乏灵活性。在本文中，我们提出了一种基于动态稀疏注意力的变压器模型，称为动态稀疏变压器（DynaST），以实现具有良好效率的精细匹配。我们方法的核心是一个新颖的动态注意力单元，致力于涵盖一个位置应该关注的最佳代币数量的变化。 具体而言，DynaST利用变压器结构的多层特性，并以级联方式执行动态注意力方案，以细化匹配结果并合成视觉上令人愉悦的输出。此外，我们还为DynaST引入了统一的训练目标，使其成为一个适用于监督和无监督场景的基于参考的通用图像转换框架。在姿势引导的人物图像生成、基于边缘的面部合成和不失真的图像风格转换这三种应用上的大量实验表明，DynaST 在局部细节方面实现了卓越的性能，在显著降低计算成本的同时超越了现有技术。
+
+## **Cross-Modal 3D Shape Generation and Manipulation跨模态 3D 形状生成和操作**
+
+- 论文/Paper: <http://arxiv.org/pdf/2207.11795>
 - 代码/Code: None
+- Creating and editing the shape and color of 3D objects require tremendous human effort and expertise. Compared to direct manipulation in 3D interfaces, 2D interactions such as sketches and scribbles are usually much more natural and intuitive for the users. In this paper, we propose a generic multi-modal generative model that couples the 2D modalities and implicit 3D representations through shared latent spaces. With the proposed model, versatile 3D generation and manipulation are enabled by simply propagating the editing from a specific 2D controlling modality through the latent spaces. For example, editing the 3D shape by drawing a sketch, re-colorizing the 3D surface via painting color scribbles on the 2D rendering, or generating 3D shapes of a certain category given one or a few reference images. Unlike prior works, our model does not require re-training or fine-tuning per editing task and is also conceptually simple, easy to implement, robust to input domain shifts, and flexible to diverse reconstruction on partial 2D inputs. We evaluate our framework on two representative 2D modalities of grayscale line sketches and rendered color images, and demonstrate that our method enables various shape manipulation and generation tasks with these 2D modalities.
+- -创建和编辑 3D 对象的形状和颜色需要大量的人力和专业知识。与 3D 界面中的直接操作相比，草图和涂鸦等 2D 交互通常对用户来说更加自然和直观。在本文中，我们提出了一个通用的多模态生成模型，该模型通过共享的潜在空间耦合了2D模态和隐式3D表示。通过所提出的模型，只需将编辑从特定的2D控制模态传播到潜在空间即可实现通用的3D生成和操作。 例如，通过绘制草图来编辑 3D 形状，通过在 2D 渲染上绘制颜色涂鸦来重新着色 3D 表面，或者在给定一个或几个参考图像的情况下生成特定类别的 3D 形状。与之前的工作不同，我们的模型不需要重新训练或微调每个编辑任务，并且在概念上也很简单，易于实现，对输入域偏移具有鲁棒性，并且可以灵活地在部分2D输入上进行多样化的重建。我们在灰度线草图和渲染彩色图像的两种代表性2D模态上评估了我们的框架，并证明了我们的方法可以使用这些2D模态进行各种形状操作和生成任务。
 
-**Auto-regressive Image Synthesis with Integrated Quantization**
+## **TM2T: Stochastic and Tokenized Modeling for the Reciprocal Generation of 3D Human Motions and TextsTM2T：用于 3D 人体运动和文本互易生成的随机和标记化建模**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.10776
+- 论文/Paper: <http://arxiv.org/abs/2207.01696>
 - 代码/Code: None
+- Inspired by the strong ties between vision and language, the two intimate human sensing and communication modalities, our paper aims to explore the generation of 3D human full-body motions from texts, as well as its reciprocal task, shorthanded for text2motion and motion2text, respectively. To tackle the existing challenges, especially to enable the generation of multiple distinct motions from the same text, and to avoid the undesirable production of trivial motionless pose sequences, we propose the use of motion token, a discrete and compact motion representation. This provides one level playing ground when considering both motions and text signals, as the motion and text tokens, respectively. Moreover, our motion2text module is integrated into the inverse alignment process of our text2motion training pipeline, where a significant deviation of synthesized text from the input text would be penalized by a large training loss; empirically this is shown to effectively improve performance. Finally, the mappings in-between the two modalities of motions and texts are facilitated by adapting the neural model for machine translation (NMT) to our context. This autoregressive modeling of the distribution over discrete motion tokens further enables non-deterministic production of pose sequences, of variable lengths, from an input text. Our approach is flexible, could be used for both text2motion and motion2text tasks. Empirical evaluations on two benchmark datasets demonstrate the superior performance of our approach on both tasks over a variety of state-of-the-art methods. Project page: [this https URL](https://ericguo5513.github.io/TM2T/)
+- 受视觉和语言这两个亲密的人类感知和交流方式之间的紧密联系的启发，本文旨在探索从文本中生成3D人体全身运动，以及其互惠任务，分别是text2motion和motion2text的缩写。为了应对现有的挑战，特别是能够从同一文本中生成多个不同的运动，并避免不受欢迎的产生琐碎的无运动姿势序列，我们建议使用运动标记，一种离散且紧凑的运动表示。当同时考虑运动和文本信号（分别作为运动和文本标记）时，这提供了一个公平的竞争环境。 此外，我们的 motion2text 模块被集成到 text2motion 训练管道的逆对齐过程中，其中合成文本与输入文本的显着偏差将受到大量训练损失的惩罚;经验证明这可以有效地提高性能。最后，通过将机器翻译（NMT）的神经模型适应我们的上下文，促进了运动和文本两种模式之间的映射。这种离散运动标记上分布的自回归建模进一步实现了从输入文本中不确定地生成可变长度的姿势序列。我们的方法是灵活的，可用于text2motion和motion2text任务。 对两个基准数据集的实证评估表明，与各种最先进的方法相比，我们的方法在这两项任务上都具有卓越的性能。
 
-**Compositional Human-Scene Interaction Synthesis with Semantic Control**
+## **Panoptic Scene Graph Generation 全景场景图生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.12824
-- 代码/Code: https://github.com/zkf1997/coins
+- 论文/Paper: <http://arxiv.org/pdf/2207.11247>
+- 代码/Code: <https://github.com/Jingkang50/OpenPSG>
+- Existing research addresses scene graph generation (SGG) -- a critical technology for scene understanding in images -- from a detection perspective, i.e., objects are detected using bounding boxes followed by prediction of their pairwise relationships. We argue that such a paradigm causes several problems that impede the progress of the field. For instance, bounding box-based labels in current datasets usually contain redundant classes like hairs, and leave out background information that is crucial to the understanding of context. In this work, we introduce panoptic scene graph generation (PSG), a new problem task that requires the model to generate a more comprehensive scene graph representation based on panoptic segmentations rather than rigid bounding boxes. A high-quality PSG dataset, which contains 49k well-annotated overlapping images from COCO and Visual Genome, is created for the community to keep track of its progress. For benchmarking, we build four two-stage baselines, which are modified from classic methods in SGG, and two one-stage baselines called PSGTR and PSGFormer, which are based on the efficient Transformer-based detector, i.e., DETR. While PSGTR uses a set of queries to directly learn triplets, PSGFormer separately models the objects and relations in the form of queries from two Transformer decoders, followed by a prompting-like relation-object matching mechanism. In the end, we share insights on open challenges and future directions.
+- 现有的研究从检测的角度解决了场景图生成（SGG）——一种用于理解图像场景的关键技术，即使用边界框检测物体，然后预测它们的成对关系。我们认为，这种范式造成了阻碍该领域进展的若干问题。例如，当前数据集中基于边界框的标签通常包含冗余类（如头发），并省略了对理解上下文至关重要的背景信息。在这项工作中，我们引入了全景场景图生成（PSG），这是一项新的问题任务，要求模型基于全景分割而不是刚性边界框生成更全面的场景图表示。 为社区创建了一个高质量的PSG数据集，其中包含来自COCO和Visual Genome的49k个注释良好的重叠图像，以跟踪其进度。对于基准测试，我们构建了四个两级基线，这些基线是从SGG中的经典方法修改而来的，以及两个称为PSGTR和PSGFormer的单级基线，它们基于高效的基于变压器的探测器，即DETR。PSGTR 使用一组查询直接学习三元组，而 PSGFormer 则以来自两个转换器解码器的查询形式分别对对象和关系进行建模，然后是类似提示的关系对象匹配机制。最后，我们分享了对开放挑战和未来方向的见解。
 
-**Generator Knows What Discriminator Should Learn in Unconditional GANs**
+## **End-to-end Graph-constrained Vectorized Floorplan Generation with Panoptic Refinement具有全景优化功能的端到端图约束矢量化平面图生成**
 
-- 论文/Paper: http://arxiv.org/pdf/2207.13320
-- 代码/Code: https://github.com/naver-ai/GGDR
-
-**StyleLight: HDR Panorama Generation for Lighting Estimation and Editing**
-
-- 论文/Paper: http://arxiv.org/pdf/2207.14811
-- 代码/Code: https://github.com/Wanggcong/StyleLight
-
-**Cross Attention Based Style Distribution for Controllable Person Image Synthesis**
-
-- 论文/Paper: http://arxiv.org/pdf/2208.00712
-- 代码/Code: https://github.com/xyzhouo/casd
-
-**SKDCGN: Source-free Knowledge Distillation of Counterfactual Generative Networks using cGANs**
-
-- 论文/Paper: http://arxiv.org/pdf/2208.04226
-- 代码/Code: https://github.com/ambekarsameer96/SKDCGN
-
-**Hierarchical Semantic Regularization of Latent Spaces in StyleGANs**
-
-- 论文/Paper: http://arxiv.org/pdf/2208.03764
+- 论文/Paper: <http://arxiv.org/pdf/2207.13268>
 - 代码/Code: None
+- The automatic generation of floorplans given user inputs has great potential in architectural design and has recently been explored in the computer vision community. However, the majority of existing methods synthesize floorplans in the format of rasterized images, which are difficult to edit or customize. In this paper, we aim to synthesize floorplans as sequences of 1-D vectors, which eases user interaction and design customization. To generate high fidelity vectorized floorplans, we propose a novel two-stage framework, including a draft stage and a multi-round refining stage. In the first stage, we encode the room connectivity graph input by users with a graph convolutional network (GCN), then apply an autoregressive transformer network to generate an initial floorplan sequence. To polish the initial design and generate more visually appealing floorplans, we further propose a novel panoptic refinement network(PRN) composed of a GCN and a transformer network. The PRN takes the initial generated sequence as input and refines the floorplan design while encouraging the correct room connectivity with our proposed geometric loss. We have conducted extensive experiments on a real-world floorplan dataset, and the results show that our method achieves state-of-the-art performance under different settings and evaluation metrics.
+- 根据用户输入自动生成平面图在建筑设计中具有巨大的潜力，最近在计算机视觉社区中进行了探索。但是，大多数现有方法以栅格化图像的格式合成平面图，这很难编辑或自定义。在本文中，我们的目标是将平面图合成为一维矢量序列，从而简化用户交互和设计定制。为了生成高保真矢量化平面图，我们提出了一个新颖的两阶段框架，包括草图阶段和多轮精炼阶段。在第一阶段，我们使用图卷积网络（GCN）对用户输入的房间连通性图进行编码，然后应用自回归变压器网络来生成初始平面图序列。 为了完善初始设计并生成更具视觉吸引力的平面图，我们进一步提出了一种由GCN和变压器网络组成的新型全景细化网络（PRN）。PRN将初始生成的序列作为输入，并完善平面图设计，同时鼓励使用我们建议的几何损失进行正确的房间连接。我们在真实世界的平面图数据集上进行了广泛的实验，结果表明，我们的方法在不同的设置和评估指标下实现了最先进的性能。
 
-**Style Your Hair: Latent Optimization for Pose-Invariant Hairstyle Transfer via Local-Style-Aware Hair Alignment**
+## **Discovering Transferable Forensic Features for CNN-generated Images Detection**
 
-- 论文/Paper: http://arxiv.org/pdf/2208.07765
-- 代码/Code: https://github.com/taeu/style-your-hair
+- 论文/Paper: <http://arxiv.org/pdf/2208.11342>
+- 代码/Code: None
+- Visual counterfeits are increasingly causing an existential conundrum in mainstream media with rapid evolution in neural image synthesis methods. Though detection of such counterfeits has been a taxing problem in the image forensics community, a recent class of forensic detectors -- universal detectors -- are able to surprisingly spot counterfeit images regardless of generator architectures, loss functions, training datasets, and resolutions. This intriguing property suggests the possible existence of transferable forensic features (T-FF) in universal detectors. In this work, we conduct the first analytical study to discover and understand T-FF in universal detectors. Our contributions are 2-fold: 1) We propose a novel forensic feature relevance statistic (FF-RS) to quantify and discover T-FF in universal detectors and, 2) Our qualitative and quantitative investigations uncover an unexpected finding: color is a critical T-FF in universal detectors. Code and models are available at [this https URL](https://keshik6.github.io/transferable-forensic-features/)-
+- 随着神经图像合成方法的快速发展，视觉伪造品越来越多地在主流媒体中引起存在难题。尽管检测此类伪造品一直是图像取证界的一个棘手问题，但最近的一类取证检测器 - 通用检测器 - 能够令人惊讶地发现伪造图像，无论生成器架构，损失函数，训练数据集和分辨率如何。这种有趣的特性表明，通用探测器中可能存在可转移的取证特征（T-FF）。在这项工作中，我们进行了第一次分析研究，以发现和理解通用探测器中的T-FF。 我们的贡献有两方面：1）我们提出了一种新的法医特征相关性统计（FF-RS）来量化和发现通用探测器中的T-FF，2）我们的定性和定量调查发现了一个意想不到的发现：颜色是通用探测器中的关键T-FF。
 
-**Paint2Pix: Interactive Painting based Progressive Image Synthesis and Editing**
 
-- 论文/Paper: http://arxiv.org/pdf/2208.08092
-- 代码/Code: https://github.com/1jsingh/paint2pix
 
-**Mind the Gap in Distilling StyleGANs**
+## **PixelFolder: An Efficient Progressive Pixel Synthesis Network for Image Generation (PixelFolder：用于图像生成的高效渐进式像素合成网络)**
 
-- 论文/Paper: http://arxiv.org/pdf/2208.08840
-- 代码/Code: https://github.com/xuguodong03/stylekd
+[paper](https://arxiv.org/abs/2204.00833) | [code](https://github.com/blinghe/pixelfolder)
+
+- Pixel synthesis is a promising research paradigm for image generation, which can well exploit pixel-wise prior knowledge for generation. However, existing methods still suffer from excessive memory footprint and computation overhead. In this paper, we propose a progressive pixel synthesis network towards efficient image generation, coined as PixelFolder. Specifically, PixelFolder formulates image generation as a progressive pixel regression problem and synthesizes images via a multi-stage structure, which can greatly reduce the overhead caused by large tensor transformations. In addition, we introduce novel pixel folding operations to further improve model efficiency while maintaining pixel-wise prior knowledge for end-to-end regression. With these innovative designs, we greatly reduce the expenditure of pixel synthesis, e.g., reducing 89% computation and 53% parameters compared with the latest pixel synthesis method CIPS. To validate our approach, we conduct extensive experiments on two benchmark datasets, namely FFHQ and LSUN Church. The experimental results show that with much less expenditure, PixelFolder obtains new state-of-the-art (SOTA) performance on two benchmark datasets, i.e., 3.77 FID and 2.45 FID on FFHQ and LSUN Church, respectively.Meanwhile, PixelFolder is also more efficient than the SOTA methods like StyleGAN2, reducing about 72% computation and 31% parameters, respectively. These results greatly validate the effectiveness of the proposed PixelFolder.
+- 像素合成是一种很有前途的图像生成研究范式，它可以很好地利用像素级先验知识进行生成。但是，现有方法仍然存在过多的内存占用和计算开销。在本文中，我们提出了一种渐进式像素合成网络，以实现高效的图像生成，称为PixelFolder。具体来说，PixelFolder 将图像生成表述为渐进式像素回归问题，并通过多阶段结构合成图像，可以大大减少大张量变换带来的开销。此外，我们引入了新颖的像素折叠操作，以进一步提高模型效率，同时保持端到端回归的像素级先验知识。 通过这些创新设计，我们大大减少了像素合成的支出，例如，与最新的像素合成方法CIPS相比，减少了89%的计算和53%的参数。为了验证我们的方法，我们对两个基准数据集进行了广泛的实验，即FFHQ和LSUN Church。实验结果表明，PixelFolder以更少的支出在两个基准数据集上获得了新的最先进的（SOTA）性能，即FFHQ和LSUN Church上的3.77 FID和2.45 FID。同时，PixelFolder也比StyleGAN2等SOTA方法更有效，分别减少了约72%的计算和31%的参数。这些结果极大地验证了所提出的像素文件夹的有效性。
+
+## ScalableViT: Rethinking the Context-oriented Generalization of Vision Transformer (ScalableViT：重新思考 Vision Transformer 面向上下文的泛化)
+
+[paper](https://arxiv.org/abs/2203.10790) | [code](https://github.com/yangr116/scalablevit)
+
+- The vanilla self-attention mechanism inherently relies on pre-defined and steadfast computational dimensions. Such inflexibility restricts it from possessing context-oriented generalization that can bring more contextual cues and global representations. To mitigate this issue, we propose a Scalable Self-Attention (SSA) mechanism that leverages two scaling factors to release dimensions of query, key, and value matrices while unbinding them with the input. This scalability fetches context-oriented generalization and enhances object sensitivity, which pushes the whole network into a more effective trade-off state between accuracy and cost. Furthermore, we propose an Interactive Window-based Self-Attention (IWSA), which establishes interaction between non-overlapping regions by re-merging independent value tokens and aggregating spatial information from adjacent windows. By stacking the SSA and IWSA alternately, the Scalable Vision Transformer (ScalableViT) achieves state-of-the-art performance in general-purpose vision tasks. For example, ScalableViT-S outperforms Twins-SVT-S by 1.4% and Swin-T by 1.8% on ImageNet-1K classification.
+- 自我注意机制本质上依赖于预定义和稳定的计算维度。这种不灵活性限制了它拥有面向上下文的泛化，而这种概括可以带来更多的上下文线索和全局表示。为了缓解此问题，我们提出了一种可伸缩的自我注意 （SSA） 机制，该机制利用两个缩放因子来释放查询、键和值矩阵的维度，同时将它们与输入解除绑定。这种可扩展性获取面向上下文的泛化并增强对象敏感性，从而将整个网络推向准确性和成本之间更有效的权衡状态。 此外，我们提出了一种基于窗口的交互式自我注意（IWSA），它通过重新合并独立的价值令牌和聚合来自相邻窗口的空间信息来建立非重叠区域之间的交互。通过交替堆叠 SSA 和 IWSA，可扩展视觉转换器 （ScalableViT） 在通用视觉任务中实现了最先进的性能。例如，在ImageNet-1K分类中，ScalableViT-S的性能比Twins-SVT-S高出1.4%，Swin-T高出1.8%。
